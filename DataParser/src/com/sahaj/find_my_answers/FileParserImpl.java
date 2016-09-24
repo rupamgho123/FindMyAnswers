@@ -32,6 +32,9 @@ public class FileParserImpl implements FileParser {
         }
     }
 
+    /**
+     * Used to parse the file passed in constructor
+     */
     public void parse() {
         BufferedReader br = null;
         try {
@@ -49,10 +52,18 @@ public class FileParserImpl implements FileParser {
         }
     }
 
+    /**
+     *
+     * @return all lines in the file
+     */
     public List<String> getLines() {
         return lines;
     }
 
+    /**
+     *
+     * @return whether file was parsed
+     */
     @Override
     public boolean isFileParsed() {
         return lines != null;

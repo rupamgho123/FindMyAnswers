@@ -5,11 +5,12 @@ import java.util.Map;
 
 /**
  * Created by rupam.ghosh on 24/09/16.
+ * Used to descending sort the keys on the basis of their values
  */
 public class ValueComparator implements Comparator<Integer> {
     Map<Integer, Integer> usageInLines;
 
-    ValueComparator(Map<Integer, Integer> usageInLines) {
+    public ValueComparator(Map<Integer, Integer> usageInLines) {
         this.usageInLines = usageInLines;
     }
 

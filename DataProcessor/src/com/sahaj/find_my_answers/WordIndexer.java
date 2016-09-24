@@ -4,6 +4,7 @@ import java.util.*;
 
 /**
  * Created by rupam.ghosh on 23/09/16.
+ * Used to index the words in the file
  */
 public class WordIndexer {
     private static final String SPACE = " ";
@@ -13,6 +14,11 @@ public class WordIndexer {
         this.languageProcessor = languageProcessor;
     }
 
+    /**
+     * Used to index one line of the basis of their word usage
+     * @param line
+     * @param mainIndexedHash
+     */
     public void indexWords(String line, Map<String, Map<String, Integer>> mainIndexedHash) {
         if (line != null) {
             Map<String, Integer> indexedHash = new HashMap<String, Integer>();
@@ -30,12 +36,22 @@ public class WordIndexer {
         }
     }
 
+    /**
+     * Used to index a list of lines of the basis of their word usage
+     * @param lines
+     * @param mainIndexedHash
+     */
     public void indexWordsByCount(List<String> lines, Map<String, Map<String, Integer>> mainIndexedHash) {
         for (String line : lines) {
             indexWords(line, mainIndexedHash);
         }
     }
 
+    /**
+     * Used to index a list of lines on basis of word usage in accouring lines
+     * @param lines
+     * @param mainIndexedHash
+     */
     public void indexWordsByLineNumber(List<String> lines, Map<String, Set<Integer>> mainIndexedHash) {
         for (int lineIndex = 0; lineIndex < lines.size(); lineIndex++) {
             String[] words = lines.get(lineIndex).replaceAll("\\?", "").split(SPACE);

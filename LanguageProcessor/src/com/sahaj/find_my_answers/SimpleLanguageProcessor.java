@@ -9,6 +9,7 @@ import java.util.Set;
 public class SimpleLanguageProcessor implements LanguageProcessor {
     private static Set<String> BLACKLISTED_WORDS;
 
+    // This block of code runs when this class is loaded and hence BLACKLISTED_WORDS is never null
     static {
         String[] temp = {"What", "is", "of", "the", "some", "their", "are", "Which"};
         BLACKLISTED_WORDS = new HashSet<String>();
@@ -17,6 +18,11 @@ public class SimpleLanguageProcessor implements LanguageProcessor {
         }
     }
 
+    /**
+     *
+     * @param word
+     * @return whether passed word in argument should be indexed
+     */
     @Override
     public boolean shouldIndex(String word) {
         return !BLACKLISTED_WORDS.contains(word);

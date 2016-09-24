@@ -10,6 +10,9 @@ public class QuestionDataProcessorV1 extends BaseQuestionDataProcessor {
         super(questionParser, wordIndexer);
     }
 
+    /**
+     * Used to process the file
+     */
     @Override
     public void process() {
         List<String> paragraph = getQuestionParser().getParagraph();

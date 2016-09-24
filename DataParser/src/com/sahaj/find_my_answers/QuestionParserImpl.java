@@ -28,24 +28,39 @@ public class QuestionParserImpl extends FileParserImpl implements QuestionParser
         this.answerIndex = answerIndex;
     }
 
+    /**
+     *
+     * @return List of line in the paragraph
+     */
     @Override
     public List<String> getParagraph() {
         checkIfParsed();
         return Arrays.asList(getLines().get(paragraphIndex).split(FULL_STOP));
     }
 
+    /**
+     *
+     * @return List of questions
+     */
     @Override
     public List<String> getQuestions() {
         checkIfParsed();
         return getLines().subList(questionStartIndex, questionEndIndex);
     }
 
+    /**
+     *
+     * @return List of answers
+     */
     @Override
     public List<String> getAnswers() {
         checkIfParsed();
         return Arrays.asList(getLines().get(answerIndex).split(SEMI_COLON));
     }
 
+    /**
+     * ensures that file is parsed otherwise throws IllegalStateException
+     */
     @Override
     public void checkIfParsed() {
         if (!isFileParsed()) {

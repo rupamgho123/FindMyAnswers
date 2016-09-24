@@ -6,6 +6,13 @@ import java.util.*;
  * Created by rupam.ghosh on 23/09/16.
  */
 public class UsageUtil {
+    /**
+     *
+     * @param question
+     * @param questionIndex
+     * @param paragraphIndex
+     * @return set of integer or line numbers related to this question
+     */
     public static Set<Integer> getQuestionUsage(String question, Map<String, Map<String, Integer>> questionIndex, Map<String, Set<Integer>> paragraphIndex) {
         Set<String> words = questionIndex.get(question).keySet();
         Map<Integer, Integer> usageInLines = new HashMap<Integer, Integer>();
@@ -43,6 +50,13 @@ public class UsageUtil {
         return smallerSet;
     }
 
+    /**
+     *
+     * @param answer
+     * @param answerIndex
+     * @param paragraphIndex
+     * @return set of integer or line numbers related to this answer
+     */
     public static Set<Integer> getAnswerUsage(String answer, Map<String, Map<String, Integer>> answerIndex, Map<String, Set<Integer>> paragraphIndex) {
         Set<String> words = answerIndex.get(answer).keySet();
         Set<Integer> usageInLines = null;

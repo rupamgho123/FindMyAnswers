@@ -21,9 +21,15 @@ public abstract class BaseQuestionDataProcessor implements QuestionDataProcessor
         orderedAnswers = new ArrayList<String>();
     }
 
+    /**
+     * Used to process the file
+     */
     @Override
     public abstract void process();
 
+    /**
+     * prints all the answers in order
+     */
     @Override
     public final void printAnswersInOrder() {
         if (orderedAnswers != null) {
@@ -33,6 +39,10 @@ public abstract class BaseQuestionDataProcessor implements QuestionDataProcessor
         }
     }
 
+    /**
+     * used to accept an answer
+     * @param answer
+     */
     @Override
     public void acceptAnswer(String answer) {
         if (orderedAnswers != null) {
@@ -40,14 +50,28 @@ public abstract class BaseQuestionDataProcessor implements QuestionDataProcessor
         }
     }
 
+    /**
+     *
+     * @return the QuestionParser used
+     * @see QuestionParser
+     */
     public final QuestionParser getQuestionParser() {
         return questionParser;
     }
 
+    /**
+     *
+     * @return list of answers in order
+     */
     public final List<String> getOrderedAnswers() {
         return orderedAnswers;
     }
 
+    /**
+     *
+     * @return the WordIndexer used
+     * @see WordIndexer
+     */
     public final WordIndexer getWordIndexer() {
         return wordIndexer;
     }
