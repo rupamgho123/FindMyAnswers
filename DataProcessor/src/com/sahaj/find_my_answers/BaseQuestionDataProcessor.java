@@ -41,4 +41,8 @@ public abstract class BaseQuestionDataProcessor implements QuestionDataProcessor
     public final QuestionParser getQuestionParser() {
         return questionParser;
     }
+
+    public final List<String> getOrderedAnswers() {
+        return orderedAnswers;
+    }
 }

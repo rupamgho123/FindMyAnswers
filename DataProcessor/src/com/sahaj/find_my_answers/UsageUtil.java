@@ -23,7 +23,7 @@ public class UsageUtil {
                 }
             }
         }
-        PriorityQueue<Integer> sortedUsageInLines = new PriorityQueue<Integer>(10, new MapValueComparator(usageInLines));
+        PriorityQueue<Integer> sortedUsageInLines = new PriorityQueue<Integer>(10, new ValueComparator(usageInLines));
         Set<Integer> usageCounts = usageInLines.keySet();
         for (Integer usageCount : usageCounts) {
             sortedUsageInLines.offer(usageCount);

@@ -2,6 +2,7 @@ package com.sahaj.find_my_answers;
 
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.List;
@@ -27,6 +28,9 @@ public class FileParserImpl implements FileParser {
             throw new IllegalArgumentException("file path is empty");
         }
         file = new File(path);
+        if(!file.exists()) {
+            throw new IllegalArgumentException("did not find file in path "+path);
+        }
     }
 
     public void parse() {

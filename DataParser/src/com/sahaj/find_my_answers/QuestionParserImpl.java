@@ -20,7 +20,7 @@ public class QuestionParserImpl extends FileParserImpl implements QuestionParser
      * List<String> questions = questionParser.getQuestions();
      * List<String> answers = questionParser.getAnswers();
      */
-    QuestionParserImpl(String path, int paragraphIndex, int questionStartIndex, int questionEndIndex, int answerIndex) {
+    public QuestionParserImpl(String path, int paragraphIndex, int questionStartIndex, int questionEndIndex, int answerIndex) {
         super(path);
         this.paragraphIndex = paragraphIndex;
         this.questionStartIndex = questionStartIndex;
