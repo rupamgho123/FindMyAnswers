@@ -5,7 +5,7 @@ package com.sahaj.find_my_answers;
  */
 public class FindMyAnswersApp {
     public static void main(String[] args) {
-        QuestionParser questionParser = new QuestionParserImpl("/Users/rupam.ghosh/repositories/FindMyAnswers/sample_inputs/input1.txt",
+        QuestionParser questionParser = new QuestionParserImpl("/Users/rupam.ghosh/repositories/FindMyAnswers/sample_inputs/input2.txt",
                 0, 1, 6, 6);
         questionParser.parse();
         QuestionDataProcessor questionDataProcessor = new QuestionDataProcessorV1(questionParser,new WordIndexer(new SimpleLanguageProcessor()));
