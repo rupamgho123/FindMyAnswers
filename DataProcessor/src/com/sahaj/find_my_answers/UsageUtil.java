@@ -1,9 +1,6 @@
 package com.sahaj.find_my_answers;
 
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 /**
  * Created by rupam.ghosh on 23/09/16.
@@ -11,15 +8,39 @@ import java.util.Set;
 public class UsageUtil {
     public static Set<Integer> getQuestionUsage(String question, Map<String, Map<String, Integer>> questionIndex, Map<String, Set<Integer>> paragraphIndex) {
         Set<String> words = questionIndex.get(question).keySet();
-        Set<Integer> usageInLines = new HashSet<Integer>();
+        Map<Integer, Integer> usageInLines = new HashMap<Integer, Integer>();
+
         Iterator<String> iterator = words.iterator();
         while (iterator.hasNext()) {
             Set<Integer> integers = paragraphIndex.get(iterator.next());
             if (integers != null) {
-                usageInLines.addAll(integers);
+                for (Integer lineNumber : integers) {
+                    int count = 0;
+                    if (usageInLines.containsKey(lineNumber)) {
+                        count = usageInLines.get(lineNumber);
+                    }
+                    usageInLines.put(lineNumber, count + 1);
+                }
             }
         }
-        return usageInLines;
+        PriorityQueue<Integer> sortedUsageInLines = new PriorityQueue<Integer>(10, new MapValueComparator(usageInLines));
+        Set<Integer> usageCounts = usageInLines.keySet();
+        for (Integer usageCount : usageCounts) {
+            sortedUsageInLines.offer(usageCount);
+        }
+
+        Iterator<Integer> integerIterator = sortedUsageInLines.iterator();
+        Set<Integer> smallerSet = new HashSet<Integer>();
+        int lastNextUsage = 0;
+        while (integerIterator.hasNext()) {
+            int next = integerIterator.next();
+            int nextUsage = usageInLines.get(next);
+            if (nextUsage >= lastNextUsage) {
+                smallerSet.add(next);
+                lastNextUsage = nextUsage;
+            }
+        }
+        return smallerSet;
     }
 
     public static Set<Integer> getAnswerUsage(String answer, Map<String, Map<String, Integer>> answerIndex, Map<String, Set<Integer>> paragraphIndex) {
