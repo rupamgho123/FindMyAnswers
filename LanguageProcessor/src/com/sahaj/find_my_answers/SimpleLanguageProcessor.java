@@ -14,7 +14,7 @@ public class SimpleLanguageProcessor implements LanguageProcessor{
     }
 
     @Override
-    public boolean isNoun(String word) {
+    public boolean shouldIndex(String word) {
         return !BLACKLISTED_WORDS.contains(word);
     }
 }
