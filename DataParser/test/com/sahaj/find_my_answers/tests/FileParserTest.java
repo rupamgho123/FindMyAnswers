@@ -11,22 +11,22 @@ import org.junit.Test;
 public class FileParserTest {
 
     @Test(expected = IllegalArgumentException.class)
-    public void shouldThrowExceptionIfPathIsNull(){
+    public void shouldThrowExceptionIfPathIsNull() {
         new FileParserImpl(null);
     }
 
     @Test(expected = IllegalArgumentException.class)
-    public void shouldThrowExceptionIfPathIsEmpty(){
+    public void shouldThrowExceptionIfPathIsEmpty() {
         new FileParserImpl("");
     }
 
     @Test(expected = IllegalArgumentException.class)
-    public void shouldThrowExceptionIfPathIsWrong(){
+    public void shouldThrowExceptionIfPathIsWrong() {
         new FileParserImpl("/Users/rupam.ghosh/random.txt");
     }
 
     @Test
-    public void shouldParseSuccessfullyIfPathIsCorrect(){
+    public void shouldParseSuccessfullyIfPathIsCorrect() {
         FileParser fileParser = new FileParserImpl("/Users/rupam.ghosh/repositories/FindMyAnswers/sample_inputs/input1.txt");
         Assert.assertFalse(fileParser.isFileParsed());
         Assert.assertNull(fileParser.getLines());

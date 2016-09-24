@@ -7,9 +7,9 @@ import java.util.Map;
  * Created by rupam.ghosh on 24/09/16.
  */
 public class ValueComparator implements Comparator<Integer> {
-    Map<Integer,Integer> usageInLines;
+    Map<Integer, Integer> usageInLines;
 
-    ValueComparator(Map<Integer,Integer> usageInLines) {
+    ValueComparator(Map<Integer, Integer> usageInLines) {
         this.usageInLines = usageInLines;
     }
 

@@ -16,15 +16,15 @@ public class QuestionDataProcessorV1Test {
         QuestionParser questionParser = new QuestionParserImpl("/Users/rupam.ghosh/repositories/FindMyAnswers/sample_inputs/input1.txt",
                 0, 1, 6, 6);
         questionParser.parse();
-        QuestionDataProcessor questionDataProcessor = new QuestionDataProcessorV1(questionParser,new WordIndexer(new SimpleLanguageProcessor()));
+        QuestionDataProcessor questionDataProcessor = new QuestionDataProcessorV1(questionParser, new WordIndexer(new SimpleLanguageProcessor()));
         questionDataProcessor.process();
         List<String> orderedAnswers = questionDataProcessor.getOrderedAnswers();
-        Assert.assertEquals(5,orderedAnswers.size());
-        Assert.assertEquals("Grévy's zebra and the mountain zebra",orderedAnswers.get(0));
-        Assert.assertEquals("aims to breed zebras that are phenotypically similar to the quagga",orderedAnswers.get(1));
-        Assert.assertEquals("horses and donkeys",orderedAnswers.get(2));
-        Assert.assertEquals("the plains zebra, the Grévy's zebra and the mountain zebra",orderedAnswers.get(3));
-        Assert.assertEquals("subgenus Hippotigris",orderedAnswers.get(4));
+        Assert.assertEquals(5, orderedAnswers.size());
+        Assert.assertEquals("Grévy's zebra and the mountain zebra", orderedAnswers.get(0));
+        Assert.assertEquals("aims to breed zebras that are phenotypically similar to the quagga", orderedAnswers.get(1));
+        Assert.assertEquals("horses and donkeys", orderedAnswers.get(2));
+        Assert.assertEquals("the plains zebra, the Grévy's zebra and the mountain zebra", orderedAnswers.get(3));
+        Assert.assertEquals("subgenus Hippotigris", orderedAnswers.get(4));
     }
 
     @Test
@@ -32,14 +32,14 @@ public class QuestionDataProcessorV1Test {
         QuestionParser questionParser = new QuestionParserImpl("/Users/rupam.ghosh/repositories/FindMyAnswers/sample_inputs/input2.txt",
                 0, 1, 6, 6);
         questionParser.parse();
-        QuestionDataProcessor questionDataProcessor = new QuestionDataProcessorV1(questionParser,new WordIndexer(new SimpleLanguageProcessor()));
+        QuestionDataProcessor questionDataProcessor = new QuestionDataProcessorV1(questionParser, new WordIndexer(new SimpleLanguageProcessor()));
         questionDataProcessor.process();
         List<String> orderedAnswers = questionDataProcessor.getOrderedAnswers();
-        Assert.assertEquals(5,orderedAnswers.size());
-        Assert.assertEquals("aims to breed zebras that are phenotypically similar to the quagga",orderedAnswers.get(0));
-        Assert.assertEquals("the plains zebra, the Grévy's zebra and the mountain zebra",orderedAnswers.get(1));
-        Assert.assertEquals("Grévy's zebra and the mountain zebra",orderedAnswers.get(2));
-        Assert.assertEquals("subgenus Hippotigris",orderedAnswers.get(3));
-        Assert.assertEquals("horses and donkeys",orderedAnswers.get(4));
+        Assert.assertEquals(5, orderedAnswers.size());
+        Assert.assertEquals("aims to breed zebras that are phenotypically similar to the quagga", orderedAnswers.get(0));
+        Assert.assertEquals("the plains zebra, the Grévy's zebra and the mountain zebra", orderedAnswers.get(1));
+        Assert.assertEquals("Grévy's zebra and the mountain zebra", orderedAnswers.get(2));
+        Assert.assertEquals("subgenus Hippotigris", orderedAnswers.get(3));
+        Assert.assertEquals("horses and donkeys", orderedAnswers.get(4));
     }
 }

@@ -6,8 +6,8 @@ import java.util.*;
  * Created by rupam.ghosh on 23/09/16.
  */
 public class QuestionDataProcessorV1 extends BaseQuestionDataProcessor {
-    public QuestionDataProcessorV1(QuestionParser questionParser,WordIndexer wordIndexer) {
-        super(questionParser,wordIndexer);
+    public QuestionDataProcessorV1(QuestionParser questionParser, WordIndexer wordIndexer) {
+        super(questionParser, wordIndexer);
     }
 
     @Override
@@ -28,7 +28,7 @@ public class QuestionDataProcessorV1 extends BaseQuestionDataProcessor {
             Set<Integer> questionUsage = UsageUtil.getQuestionUsage(question, questionIndex, paragraphIndex);
             for (String answer : answers) {
                 Set<Integer> answerUsage = UsageUtil.getAnswerUsage(answer, answerIndex, paragraphIndex);
-                if(answerUsage != null) {
+                if (answerUsage != null) {
                     Set<Integer> intersection = new HashSet<Integer>(answerUsage);
                     intersection.retainAll(questionUsage);
                     if (intersection.size() >= 1) {

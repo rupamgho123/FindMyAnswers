@@ -11,7 +11,7 @@ public abstract class BaseQuestionDataProcessor implements QuestionDataProcessor
     private WordIndexer wordIndexer;
     private List<String> orderedAnswers;
 
-    public BaseQuestionDataProcessor(QuestionParser questionParser,WordIndexer wordIndexer) {
+    public BaseQuestionDataProcessor(QuestionParser questionParser, WordIndexer wordIndexer) {
         if (questionParser == null) {
             throw new IllegalArgumentException("questionParser cannot be null");
         }

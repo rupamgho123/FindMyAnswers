@@ -44,7 +44,7 @@ public class QuestionParserTest {
 
         Assert.assertNotNull(paragraph);
         Assert.assertTrue(paragraph.size() > 0);
-        Assert.assertEquals(5,questions.size());
-        Assert.assertEquals(5,answers.size());
+        Assert.assertEquals(5, questions.size());
+        Assert.assertEquals(5, answers.size());
     }
 }

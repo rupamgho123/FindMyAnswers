@@ -6,9 +6,9 @@ import java.util.List;
  * Created by rupam.ghosh on 23/09/16.
  */
 public interface FileParser {
-    public void parse();
+    void parse();
 
-    public List<String> getLines();
+    List<String> getLines();
 
     boolean isFileParsed();
 }
