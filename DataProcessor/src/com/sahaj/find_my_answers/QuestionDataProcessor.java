@@ -10,6 +10,8 @@ public interface QuestionDataProcessor {
 
     QuestionParser getQuestionParser();
 
+    WordIndexer getWordIndexer();
+
     void printAnswersInOrder();
 
     void acceptAnswer(String answer);

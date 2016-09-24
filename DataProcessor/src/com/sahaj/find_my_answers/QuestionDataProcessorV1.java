@@ -6,8 +6,8 @@ import java.util.*;
  * Created by rupam.ghosh on 23/09/16.
  */
 public class QuestionDataProcessorV1 extends BaseQuestionDataProcessor {
-    public QuestionDataProcessorV1(QuestionParser questionParser) {
-        super(questionParser);
+    public QuestionDataProcessorV1(QuestionParser questionParser,WordIndexer wordIndexer) {
+        super(questionParser,wordIndexer);
     }
 
     @Override
@@ -19,9 +19,9 @@ public class QuestionDataProcessorV1 extends BaseQuestionDataProcessor {
         Map<String, Map<String, Integer>> questionIndex = new HashMap<String, Map<String, Integer>>();
         Map<String, Map<String, Integer>> answerIndex = new HashMap<String, Map<String, Integer>>();
 
-        IndexingUtil.indexWordsByLineNumber(paragraph, paragraphIndex);
-        IndexingUtil.indexWordsByCount(questions, questionIndex);
-        IndexingUtil.indexWordsByCount(answers, answerIndex);
+        getWordIndexer().indexWordsByLineNumber(paragraph, paragraphIndex);
+        getWordIndexer().indexWordsByCount(questions, questionIndex);
+        getWordIndexer().indexWordsByCount(answers, answerIndex);
 
         for (String question : questions) {
             String correctAnswer = "UNDETERMINED";

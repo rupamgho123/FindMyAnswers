@@ -1,5 +1,6 @@
 rootProject.name = 'findMyAnswers'
 include ':DataParser'
 include ':DataProcessor'
+include ':LanguageProcessor'
 include ':MainApp'
 

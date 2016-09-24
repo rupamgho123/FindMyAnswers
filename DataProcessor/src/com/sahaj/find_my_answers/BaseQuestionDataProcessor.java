@@ -8,14 +8,16 @@ import java.util.List;
  */
 public abstract class BaseQuestionDataProcessor implements QuestionDataProcessor {
     private QuestionParser questionParser;
+    private WordIndexer wordIndexer;
     private List<String> orderedAnswers;
 
-    public BaseQuestionDataProcessor(QuestionParser questionParser) {
+    public BaseQuestionDataProcessor(QuestionParser questionParser,WordIndexer wordIndexer) {
         if (questionParser == null) {
             throw new IllegalArgumentException("questionParser cannot be null");
         }
         questionParser.checkIfParsed();
         this.questionParser = questionParser;
+        this.wordIndexer = wordIndexer;
         orderedAnswers = new ArrayList<String>();
     }
 
@@ -44,5 +46,9 @@ public abstract class BaseQuestionDataProcessor implements QuestionDataProcessor
 
     public final List<String> getOrderedAnswers() {
         return orderedAnswers;
+    }
+
+    public final WordIndexer getWordIndexer() {
+        return wordIndexer;
     }
 }

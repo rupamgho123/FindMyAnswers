@@ -1,9 +1,6 @@
 package com.sahaj.find_my_answers.tests;
 
-import com.sahaj.find_my_answers.QuestionDataProcessor;
-import com.sahaj.find_my_answers.QuestionDataProcessorV1;
-import com.sahaj.find_my_answers.QuestionParser;
-import com.sahaj.find_my_answers.QuestionParserImpl;
+import com.sahaj.find_my_answers.*;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -19,7 +16,7 @@ public class QuestionDataProcessorV1Test {
         QuestionParser questionParser = new QuestionParserImpl("/Users/rupam.ghosh/repositories/FindMyAnswers/sample_inputs/input1.txt",
                 0, 1, 6, 6);
         questionParser.parse();
-        QuestionDataProcessor questionDataProcessor = new QuestionDataProcessorV1(questionParser);
+        QuestionDataProcessor questionDataProcessor = new QuestionDataProcessorV1(questionParser,new WordIndexer(new SimpleLanguageProcessor()));
         questionDataProcessor.process();
         List<String> orderedAnswers = questionDataProcessor.getOrderedAnswers();
         Assert.assertEquals(5,orderedAnswers.size());

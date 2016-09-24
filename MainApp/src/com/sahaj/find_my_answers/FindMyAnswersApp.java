@@ -8,7 +8,7 @@ public class FindMyAnswersApp {
         QuestionParser questionParser = new QuestionParserImpl("/Users/rupam.ghosh/repositories/FindMyAnswers/sample_inputs/input1.txt",
                 0, 1, 6, 6);
         questionParser.parse();
-        QuestionDataProcessor questionDataProcessor = new QuestionDataProcessorV1(questionParser);
+        QuestionDataProcessor questionDataProcessor = new QuestionDataProcessorV1(questionParser,new WordIndexer(new SimpleLanguageProcessor()));
         questionDataProcessor.process();
         questionDataProcessor.printAnswersInOrder();
     }
